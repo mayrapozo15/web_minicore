@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<head>
+		<title>Reporte</title>
+         <script src="{{ asset('general.js') }}"></script>
+	</head>
+	<div class="justify-content-center text-center">
+		<h1>Listado de tareas</h1>
+	</div>
+	<div class="row p-4">
+		<div class="col mb-3">
+			<label class="form-label" for="formIni">Fecha inicio</label>
+		<input class="form-control" id="formIni" type="date" value="2024-01-06"/>
+		</div>
+		<div class="col mb-3">
+			<label class="form-label" for="fomrFin">Fecha Fin</label>
+			<input class="form-control" id="fomrFin" type="date" value="2024-01-16"/>
+		</div>
+		<div class="col mb-3">
+			<label class="form-label" for="formEstado">Estado</label>
+			<select class="form-control" id="formEstado">
+				<option value="In progress">In progress</option>
+				<option value="Done">Done</option>
+			</select>
+		</div>
+		<div class="col mb-3">
+			<label class="form-label" for="formDias">Ingrese dias</label>
+			<input class="form-control" id="formDias" type="numeric" value="1"/>
+		</div>
+		<button class="btn btn-outline-success" type="submit" onclick="mostrarTareas()">Consultar<span class="fas fa-save ms-2" data-fa-transform="shrink-3"></span>
+		</button>
+	</div>
+	<table class="table table-sm mb-0 data-general fs--1">
+		<thead class="bg-200 text-900">
+			<tr>
+				<th class="sort pe-1 align-middle">#</th>
+				<th class="sort pe-1 align-middle">Empleado</th>
+				<th class="sort pe-1 align-middle">Tarea</th>
+				<th class="sort pe-1 align-middle">Fecha inicio</th>
+				<th class="sort pe-1 align-middle">Fecha fin</th>
+				<th class="sort pe-1 align-middle">Dias pasados</th>
+				<th class="sort pe-1 align-middle">Proyecto</th>
+			</tr>
+		</thead>
+		<tbody class="list" id="tareas"></tbody>
+	</table>
+{% endblock %}
